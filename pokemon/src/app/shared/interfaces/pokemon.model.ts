@@ -20,12 +20,7 @@
 //     condition: string 
 
 // }
-// export interface evolution {     
-//     pre: [];
-//     next: next[];
-//     mega: [];
-         
-// }
+// 
 // export interface name{     
 //     name: string,
 // }
@@ -42,9 +37,35 @@
 //     // evolution:[];     
 //   }
 
+export interface next {     
+    pokedex_id: number;
+    name: string;
+    condition: string;
+         
+}
+export interface evolution {     
+    pre: [] | null;
+    next: next[] | null;
+    mega: [] | null;
+         
+}
+export interface ITalents {
+  name: string;
+  tc:boolean;
 
-export interface IPokemonList   {
-pokedex_id: number;
+}
+ 
+export interface ITypes {
+  name: string;
+  image:string;
+
+}
+export interface Igmax {
+  images: string[];
+  
+}
+export interface IPokemon   {
+  pokedex_id: number;
   generation: number;
   category: string;
   name: {
@@ -55,9 +76,9 @@ pokedex_id: number;
   sprites: {
     regular: string;
     shiny: string | null;
-    gmax: string | null;
+    gmax: Igmax | null;
   };
-  types: string[] | null;
+  types:ITypes[] | null;
   talents: string[] | null;
   stats: any | null;
   resistances: any | null;

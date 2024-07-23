@@ -10,14 +10,38 @@
       />
       <div class="card-body">
         <h5 class="card-title">{{ pokemon.name.fr }}</h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+        <!-- <div class="row">           
+          <p>Stats</p>
+          <p>{{ pokemon.stats.hp }}</p>
+          <p>{{ pokemon.stats.atk }}</p>
+          <p>{{ pokemon.stats.def }}</p>
+          <p>{{ pokemon.stats.spe_atk }}</p>
+          <p>{{ pokemon.stats.spe_def }}</p>
+          <p>{{ pokemon.stats.vit }}</p>
+        </div> -->
+        <div class="d-flex justify-content-between">
+          <a
+            routerLink="/pokemon/{{ pokemon.pokedex_id }}"
+            class="btn btn-primary"
+            >En savoir plus</a
+          >
+          <a
+            routerLink="/pokemon/{{ pokemon.pokedex_id }}"
+            class="btn btn-danger"
+            >Supprimer</a
+          >
+        </div>
       </div>
     </div>
 
     }
   </div>
 </section>
+<!-- pokedex_id, 
+name( en fr), 
+sprites, 
+types(afficher les images des 2 types), 
+talents, 
+les stats 
+les evolutions  -->
