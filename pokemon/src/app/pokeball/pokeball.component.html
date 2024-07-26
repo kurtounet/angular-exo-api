@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+      <img class="img-bag" [src]="bag" alt="sac à dos">
+    </div>
+    <div class="col-md-6 row">
+      @for (pokemon of arrayPokeballs; track $index)
+      {
+      <div class="d-flex justify-content-start align-items-center">
+
+        <img class="img-pokeball" [src]="pokeballImage" alt="{{pokemon.name.fr}}">
+        <div class="row d-flex align-items-center">
+          <img class="img-pokemon col" [src]="pokemon.sprites.regular" alt="{{pokemon.name.fr}}" (click)="show($event)">
+
+          @if(showinfo){
+          <div>
+            <p>{{pokemon.name.fr}}</p>
+            <p>{{pokemon.level_100}}</p>
+          </div>
+          }
+
+        </div>
+
+      </div>
+      }
+    </div>
+  </div>
+</div>

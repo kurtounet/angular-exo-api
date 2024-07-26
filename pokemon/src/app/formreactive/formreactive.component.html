@@ -1,28 +1,36 @@
-<!-- <form (ngSubmit)="onSubmit()" [formGroup]="form" class="col-sm-12">
+<form (ngSubmit)="onSubmit()" [formGroup]="form" class="col-sm-12">
   <label for="email">Email</label>
   <input id="email" formControlName="email" type="email" />
   <label for="password">Mot de passe</label>
   <input id="password" formControlName="password" type="password" />
   <button type="submit" [disabled]="form.invalid">OK</button>
-</form> -->
+</form>
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-sm-12">
   <!-- Si affiche True = erreur , null pas d'erreurs -->
   <p>message: {{ form.controls["email"].errors | json }}</p>
+
   @if( form.controls["email"].invalid && form.controls["email"].touched ||
-  form.controls["email"].dirty) {
+  form.controls["email"].dirty){
+
   @if(form.controls["email"].errors?.["minlength"]){
   <div class="alert-danger">TROP COURT</div>
-  } }
+  }
+  }
   <label for="email">Email</label>
   <input id="email" formControlName="email" type="email" />
+
   <p>message: {{ form.controls["password"].errors | json }}</p>
   @if( form.controls["password"].invalid && form.controls["password"].touched ||
-  form.controls["password"].dirty) {
+  form.controls["password"].dirty){
+
   @if(form.controls["password"].errors?.["minlength"]){
   <div class="alert-danger">TROP COURT</div>
-  } @if(form.controls["password"].errors?.["maxlength"]){
+  }
+
+  @if(form.controls["password"].errors?.["maxlength"]){
   <div class="alert-danger">TROP LONG</div>
-  } }
+  }
+  }
   <label for="password">Mot de passe</label>
   <input id="password" formControlName="password" type="password" />
   <button type="submit" [disabled]="form.invalid">OK</button>
