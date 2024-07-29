@@ -4,11 +4,117 @@
       <div class="pokemon-header">
         <h1 class="pokemon-name">
           {{ pokemon.name.fr }}
-          <span class="pokemon-name-alt"
-            >({{ pokemon.name.en }} / {{ pokemon.name.jp }})</span
-          >
+          <span class="pokemon-name-alt">({{ pokemon.name.en }} / {{ pokemon.name.jp }})</span>
         </h1>
-        <!-- <div class="pokemon-images">
+        <img [src]="pokemon.sprites.regular" [alt]="pokemon.name.fr">
+      </div>
+    </div>
+
+    <!-- pokedex_id
+     name( en fr)
+     sprites
+     types(afficher les images des 2 types)
+     talents
+     les stats
+     les evolutions -->
+    <div class="col-md-6">
+      <div class="pokemon-body">
+        <div class="pokemon-info">
+          <h4>Details</h4>
+          <div class="row">
+            <p class="col">
+              <strong>Pokedex ID:</strong> {{ pokemon.pokedex_id }}
+            </p>
+            <p class="col">
+              <strong>Generation:</strong> {{ pokemon.generation }}
+            </p>
+          </div>
+          <div class="row">
+            <p class="col"><strong>Category:</strong> {{ pokemon.category }}</p>
+            <p class="col"><strong>Height:</strong> {{ pokemon.height }}</p>
+          </div>
+          <div class="row">
+            <p class="col"><strong>Weight:</strong> {{ pokemon.weight }}</p>
+            <p class="col">
+              <strong>Catch Rate:</strong> {{ pokemon.catch_rate }}
+            </p>
+          </div>
+          <p class="col">
+            <strong>Level 100 Exp:</strong> {{ pokemon.level_100 }}
+          </p>
+        </div>
+      </div>
+
+      <div *ngIf="pokemon.types" class="pokemon-section">
+        <h4>Types</h4>
+        <ul class="row">
+          <li class="col" *ngFor="let type of pokemon.types"><img [src]="type.image" [alt]="type.name" class="imgType">
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="pokemon.talents" class="pokemon-section">
+        <h4>Talents</h4>
+        <ul>
+          <li *ngFor="let talent of pokemon.talents">{{ talent.name }}</li>
+        </ul>
+      </div>
+
+      <div *ngIf="pokemon.stats" class="pokemon-section">
+        <h4>Stats</h4>
+        <ul class="row">
+          <li class="col" *ngFor="let stat of pokemon.stats | keyvalue">
+            {{ stat.key }}: {{ stat.value }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div *ngIf="pokemon.resistances" class="pokemon-section">
+        <h4>Resistances</h4>
+        <ul>
+          <li *ngFor="let resistance of pokemon.resistances | keyvalue">
+            {{ resistance.key }}: {{ resistance.value }}
+          </li>
+        </ul>
+      </div> -->
+
+      <div *ngIf="pokemon.evolution" class="pokemon-section">
+        <h4>Evolution</h4>
+        <ul>
+          <li *ngFor="let evo of pokemon.evolution | keyvalue">
+            {{ evo.key }}: {{ evo.value }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div *ngIf="pokemon.egg_groups" class="pokemon-section">
+        <h4>Egg Groups</h4>
+        <ul>
+          <li *ngFor="let group of pokemon.egg_groups">{{ group }}</li>
+        </ul>
+      </div> -->
+
+      <!-- <div *ngIf="pokemon.sexe" class="pokemon-section">
+        <h4>Sexe</h4>
+        <ul>
+          <li *ngFor="let sexe of pokemon.sexe | keyvalue">
+            {{ sexe.key }}: {{ sexe.value }}
+          </li>
+        </ul>
+      </div> -->
+
+      <!-- <div *ngIf="pokemon.formes" class="pokemon-section">
+        <h4>Formes</h4>
+        <ul>
+          <li *ngFor="let forme of pokemon.formes | keyvalue">
+            {{ forme.key }}: {{ forme.value }}
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- <div class="pokemon-images">
           <img
             class="pokemon-image"
             [src]="pokemon.sprites.regular"
@@ -27,8 +133,8 @@
             alt="{{ pokemon.name.fr }} G-Max sprite"
           />
         </div> -->
-        <app-carrousel [images]="images"></app-carrousel>
-        <!-- <div id="carouselExample" class="carousel slide">
+<!-- <app-carrousel [images]="images"></app-carrousel> -->
+<!-- <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img
@@ -71,105 +177,6 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div> -->
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="pokemon-body">
-        <div class="pokemon-info">
-          <h4>Details</h4>
-          <div class="row">
-            <p class="col">
-              <strong>Pokedex ID:</strong> {{ pokemon.pokedex_id }}
-            </p>
-            <p class="col">
-              <strong>Generation:</strong> {{ pokemon.generation }}
-            </p>
-          </div>
-          <div class="row">
-            <p class="col"><strong>Category:</strong> {{ pokemon.category }}</p>
-            <p class="col"><strong>Height:</strong> {{ pokemon.height }}</p>
-          </div>
-          <div class="row">
-            <p class="col"><strong>Weight:</strong> {{ pokemon.weight }}</p>
-            <p class="col">
-              <strong>Catch Rate:</strong> {{ pokemon.catch_rate }}
-            </p>
-          </div>
-          <p class="col">
-            <strong>Level 100 Exp:</strong> {{ pokemon.level_100 }}
-          </p>
-        </div>
-      </div>
-
-      <div *ngIf="pokemon.types" class="pokemon-section">
-        <h4>Types</h4>
-        <ul class="row">
-          <li *ngFor="let type of pokemon.types">{{ type }}</li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.talents" class="pokemon-section">
-        <h4>Talents</h4>
-        <ul>
-          <li *ngFor="let talent of pokemon.talents">{{ talent }}</li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.stats" class="pokemon-section">
-        <h4>Stats</h4>
-        <ul class="row">
-          <li class="col" *ngFor="let stat of pokemon.stats | keyvalue">
-            {{ stat.key }}: {{ stat.value }}
-          </li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.resistances" class="pokemon-section">
-        <h4>Resistances</h4>
-        <ul>
-          <li *ngFor="let resistance of pokemon.resistances | keyvalue">
-            {{ resistance.key }}: {{ resistance.value }}
-          </li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.evolution" class="pokemon-section">
-        <h4>Evolution</h4>
-        <ul>
-          <li *ngFor="let evo of pokemon.evolution | keyvalue">
-            {{ evo.key }}: {{ evo.value }}
-          </li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.egg_groups" class="pokemon-section">
-        <h4>Egg Groups</h4>
-        <ul>
-          <li *ngFor="let group of pokemon.egg_groups">{{ group }}</li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.sexe" class="pokemon-section">
-        <h4>Sexe</h4>
-        <ul>
-          <li *ngFor="let sexe of pokemon.sexe | keyvalue">
-            {{ sexe.key }}: {{ sexe.value }}
-          </li>
-        </ul>
-      </div>
-
-      <div *ngIf="pokemon.formes" class="pokemon-section">
-        <h4>Formes</h4>
-        <ul>
-          <li *ngFor="let forme of pokemon.formes | keyvalue">
-            {{ forme.key }}: {{ forme.value }}
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- 
  pokedex_id
  name( en fr)

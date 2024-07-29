@@ -3,40 +3,22 @@
     @for (pokemon of pokemonList; track pokemon.pokedex_id){
 
     <div class="card m-1" style="width: 18rem">
-      <img
-        [src]="pokemon.sprites.regular"
-        class="card-img-top"
-        [alt]="pokemon.name"
-      />
+      <img [src]="pokemon.sprites.regular" class="card-img-top" [alt]="pokemon.name" />
       <div class="card-body">
         <h5 class="card-title">{{ pokemon.name.fr }}</h5>
-
-        <!-- <div class="row">           
-          <p>Stats</p>
-          <p>{{ pokemon.stats.hp }}</p>
-          <p>{{ pokemon.stats.atk }}</p>
-          <p>{{ pokemon.stats.def }}</p>
-          <p>{{ pokemon.stats.spe_atk }}</p>
-          <p>{{ pokemon.stats.spe_def }}</p>
-          <p>{{ pokemon.stats.vit }}</p>
-        </div> -->
+        <a routerLink="/pokemon/{{ pokemon.pokedex_id }}" class="btn btn-primary">Détails</a>
         <div class="d-flex justify-content-between">
-          <a
-            routerLink="/pokemon/{{ pokemon.pokedex_id }}"
-            class="btn btn-primary"
-            >En savoir plus</a
-          >
-          <a
-            routerLink="/pokemon/{{ pokemon.pokedex_id }}"
-            class="btn btn-danger"
-            >Supprimer</a
-          >
+          <button (click)="pokemonService.addToPokemonsInBag(pokemon)" class="btn btn-success">Ajouter dans le
+            sac</button>
+          <button (click)="removePokemonList(pokemon.pokedex_id)" class="btn btn-danger">supprimer</button>
         </div>
       </div>
     </div>
-
     }
   </div>
+
+
+
 </section>
 <!-- pokedex_id, 
 name( en fr), 

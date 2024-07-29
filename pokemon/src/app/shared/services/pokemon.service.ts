@@ -8,10 +8,37 @@ import {IPokemon } from '../interfaces/pokemon.model';
 export class PokemonService {
   urlApi = 'https://tyradex.tech/api/v1/pokemon';   
   http = inject(HttpClient);
-  fetchAll() {
+
+  Bag =[];
+  arrayPokeballs: IPokemon[]=[];
+  Pokeballs=[];
+  Pokemon: IPokemon[]=[];
+  showinfo:boolean = false;
+  
+  arrayAllPokemonList: IPokemon[]=[];
+ 
+  fetchApiAllPokemon() {    
     return this.http.get<IPokemon[]>(this.urlApi);
   }
+
   fetchOne(id:any){
     return this.http.get<IPokemon>(`${this.urlApi}/${id}`);
   }
+  getArrayAllPokemon(){    
+    return this.arrayAllPokemonList; 
+  }
+  addToPokemonsInBag(pokemon:IPokemon){
+    this.arrayPokeballs.push(pokemon);
+  }
+  removePokemonList(id:number){
+     
+    console.log(id);
+    
+  }
+  // removeToPokeball(pokemon:number){
+  //  // return this.http.post<IPokemon>(this.urlApi,pokemon);
+  // }
+  // removeToPokeball(pokemon:number){
+  //  // return this.http.post<IPokemon>(this.urlApi,pokemon);
+  // }
 }

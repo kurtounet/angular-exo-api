@@ -10,14 +10,14 @@
 
         <img class="img-pokeball" [src]="pokeballImage" alt="{{pokemon.name.fr}}">
         <div class="row d-flex align-items-center">
-          <img class="img-pokemon col" [src]="pokemon.sprites.regular" alt="{{pokemon.name.fr}}" (click)="show($event)">
+          <img class="img-pokemon col" [src]="pokemon.sprites.regular" alt="{{pokemon.name.fr}}">
 
-          @if(showinfo){
-          <div>
+          <!-- @if(showinfo){
+          <div> (click)="show($event)
             <p>{{pokemon.name.fr}}</p>
             <p>{{pokemon.level_100}}</p>
           </div>
-          }
+          } -->
 
         </div>
 

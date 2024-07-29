@@ -79,7 +79,7 @@ export interface IPokemon   {
     gmax: Igmax | null;
   };
   types:ITypes[] | null;
-  talents: string[] | null;
+  talents: ITalents[] | null;
   stats: any | null;
   resistances: any | null;
   evolution: any | null;

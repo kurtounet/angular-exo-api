@@ -18,29 +18,23 @@ export class PokeballComponent {
   //pokeballImage="/assets/pokeball.png";
   pokeballImage="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/601px-Pokebola-pokeball-png-0.png";
 
-  Bag =[];
-  arrayPokeballs: IPokemon[]=[];
-  Pokeballs=[];
-  Pokemons: IPokemon[]=[];
-  showinfo:boolean = false;
-
-  isActive:boolean = true;
-   isDisabled:boolean = false;
-  ngOnInit() { 
-    this.getAllPokemon();
-  }
-  getAllPokemon() {
-    this.pokemonService.fetchAll().subscribe(data => {
-      this.arrayPokeballs = data.slice(1, 4);
-       
-      console.log(this.arrayPokeballs);
-      
-    });
-  }
-
-  show(e:any) {
-  this.showinfo = !this.showinfo;
-  }
   
 
-}
+  // isActive:boolean = true;
+  // isDisabled:boolean = false;
+  arrayPokeballs: IPokemon[]=[];
+  ngOnInit() { 
+    this.getPokemonsInBag();
+  }
+ getPokemonsInBag() {
+    this.arrayPokeballs=this.pokemonService.arrayPokeballs;       
+      console.log(this.arrayPokeballs);      
+    }
+  }
+
+  // show(e:any) {
+  // this.showinfo = !this.showinfo;
+  // }
+  
+
+

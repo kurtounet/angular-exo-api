@@ -19,16 +19,20 @@ export interface Pokemon {
 export class ListPokemonComponent {
   
   pokemonList: IPokemon[]=[];
-  pokemonService = inject(PokemonService)
+  pokemonService = inject(PokemonService);
+
   ngOnInit(): void {
-    this.getAllPokemon();
+    this.getArrayAllPokemon();
   }
-  getAllPokemon() {
-    this.pokemonService.fetchAll().subscribe(data => {
+  getArrayAllPokemon() {
+    this.pokemonService. fetchApiAllPokemon().subscribe(data => {
       this.pokemonList = data.slice(1, 21);
-      console.log(data);
-      //this.pokemons.push({ name: data['fr'], pokedex_id: data['pokedex_id'] });
+      console.log(data);      
     })
+  }
+
+  removePokemonList(id:number){
+    this.pokemonList = this.pokemonList.filter(pokemon => pokemon.pokedex_id !== id);   
   }
 
 }
