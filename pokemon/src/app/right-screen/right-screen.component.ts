@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './right-screen.component.css'
 })
 export class RightScreenComponent {
- // @Input() inPokemon: IPokemon;
+  @Input() inPokemon!: IPokemon;
 
 }
