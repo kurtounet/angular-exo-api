@@ -1,13 +1,12 @@
 <section>
-  <div class="row">
+  <div class="row d-flex justify-content-center">
     @for (pokemon of pokemonList; track pokemon.pokedex_id){
-
-    <div class="card m-1" style="width: 18rem">
+    <div class="card m-1" style="width: 20rem">
       <img [src]="pokemon.sprites.regular" class="card-img-top" alt="pokemon.name.fr" />
       <div class="card-body">
         <h5 class="card-title">{{ pokemon.name.fr }}</h5>
-        <a routerLink="/pokemon/{{ pokemon.pokedex_id }}" class="btn btn-primary">Détails</a>
         <div class="d-flex justify-content-between">
+          <a routerLink="/pokemon/{{ pokemon.pokedex_id }}" class="btn btn-primary">Détails</a>
           <button (click)="pokemonService.addToPokemonsInBag(pokemon)" class="btn btn-success">Ajouter</button>
           <button (click)="removePokemonList(pokemon.pokedex_id)" class="btn btn-danger">supprimer</button>
         </div>
@@ -15,7 +14,6 @@
     </div>
     }
   </div>
-
 </section>
 <!-- pokedex_id,
 name( en fr),

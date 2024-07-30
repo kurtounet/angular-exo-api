@@ -1,11 +1,29 @@
-<div class="container">
+<div>
   <h1>Bienvenu sur le pokedex</h1>
   <!-- <app-searchpokemon></app-searchpokemon> -->
-  <input type="text" [(ngModel)]="search" name="search">
+  <input type="text" [(ngModel)]="search" name="search" value="Feuforêve">
+  <div id="pokedexBox">
+    <div *ngFor="let pokemon of PokemonsList | search:search">
+      <div class="pokedex">
+        <div class="pokedexImg">
+          <img [src]="pokemon?.sprites?.regular" alt="pokemon?.name?.fr">
+        </div>
+        <div class="">
+          <app-right-screen [inPokemon]="pokemon"></app-right-screen>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- <div class="container">
+  <h1>Bienvenu sur le pokedex</h1>
+    <app-searchpokemon></app-searchpokemon>  
+  <input type="text" [(ngModel)]="search" name="search">
+  <div id="pokedexBox">
     <div *ngFor="let pokemon of PokemonsList | search:search">
       <div class="row">
-        <div class="col-md-6">
+        <div class="d-flex flex-column justify-content-center align-item-center">
           <img [src]="pokemon?.sprites?.regular" alt="pokemon?.name?.fr">
         </div>
         <div class="col-md-6">
@@ -13,5 +31,5 @@
         </div>
       </div>
     </div>
-
-</div>
+  </div>
+</div> -->

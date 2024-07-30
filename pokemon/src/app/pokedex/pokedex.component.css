@@ -1,6 +1,55 @@
+.imgPok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
 img {
-  width: 300px;
-  height: 300px;
+  background-color: #04f804;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   object-position: center;
+}
+
+.pokedex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokedexImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokedexData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 
+div#pokedexBox {
+  color: brown;
+  background-image: url(/assets/pokedex.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  width: 100%;
+
+} */
+#pokedexBox {
+  background-image: url("https://data.pixiz.com/output/user/frame/preview/400x400/2/3/0/0/2200032_50ba6.jpg");
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 500px;
+  border: 2px solid #04f804;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px;
 }

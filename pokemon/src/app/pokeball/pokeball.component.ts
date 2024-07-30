@@ -32,7 +32,7 @@ export class PokeballComponent {
     }
   }
 
-  // show(e:any) {
+  // show(event: any) {
   // this.showinfo = !this.showinfo;
   // }
   
