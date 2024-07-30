@@ -1,3 +1,7 @@
+
+ng add ng2-charts
+ng install chart.js --save
+
 # Exo sur angular
 Projet: POKEMON 
 Objectif :
