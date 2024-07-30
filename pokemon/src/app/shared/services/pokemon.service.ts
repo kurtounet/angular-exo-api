@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import {IPokemon } from '../interfaces/pokemon.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
-  urlApi = 'https://tyradex.tech/api/v1/pokemon';   
+ // urlApi = 'https://tyradex.tech/api/v1/pokemon';   
+  urlApi = environment.urlApi;
   http = inject(HttpClient);
 
   Bag =[];
