@@ -3,6 +3,7 @@ import { PokemonService } from '../shared/services/pokemon.service';
 import { IPokemon } from '../shared/interfaces/pokemon.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 export interface Pokemon {
 
@@ -21,12 +22,19 @@ export class ListPokemonComponent {
   pokemonList: IPokemon[]=[];
   pokemonService = inject(PokemonService);
 
+  dataPoke!:Subscription;
+
+
   ngOnInit(): void {
     this.getArrayAllPokemon();
   }
+  ngOnDestroy(): void {
+    this.dataPoke.unsubscribe();
+    console.log('destroy');
+  }
   getArrayAllPokemon() {
-    this.pokemonService. fetchApiAllPokemon().subscribe(data => {
-      this.pokemonList = data.slice(1, 21);
+    this.dataPoke = this.pokemonService.fetchApiAllPokemon().subscribe(data => {
+      this.pokemonList = data.slice(200, 225);
       console.log(data);      
     })
   }

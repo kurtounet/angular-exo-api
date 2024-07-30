@@ -6,11 +6,13 @@ import { FormngmodelComponent } from './formngmodel/formngmodel.component';
 import { FormreactiveComponent } from './formreactive/formreactive.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import { PokeballComponent } from './pokeball/pokeball.component';
+import { ChartComponent } from './chart/chart.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent    },
     { path: 'pokeball', component: PokeballComponent     },
     { path: 'pokedex', component: PokedexComponent     },
+    { path: 'chart', component: ChartComponent },
     { path: 'pokemon/:id', component: PokemonDetailsComponent },
     { path: 'formngmodel', component: FormngmodelComponent   },
     { path: 'formreactive', component: FormreactiveComponent   },
