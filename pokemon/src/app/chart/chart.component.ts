@@ -12,7 +12,7 @@ import { BaseChartDirective } from 'ng2-charts';
 export class ChartComponent {
 
   data: ChartData<'bar'> = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    labels: ['Janvier', 'février', 'Mars', 'Avril', 'Mai', 'Juin'],
     datasets: [{    
       data: this.getData()
   }]
